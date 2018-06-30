@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FALL IN LOVE WITH SMG</title>
+</head>
+<style>
+	.mask{
+		background-image: url(background.jpg);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top:0;
+		left: 0;
+		opacity: 0.4;
+	}
+	.container{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top:0;
+		left: 0;
+	}
+	#content{
+		margin:20vh auto;
+		/*text-align: center;*/
+		min-width: 50%;
+		font-weight: 700;
+		font-size: 20px;
+		color: #ff80ab;
+		z-index: 9999;
+	}
+	.title{
+	}
+	.paragraph{
+		margin: 20px auto;
+		font-size: 25px;
+	}
+	.timer{
+		display: inline;
+	}
+	.me{
+		text-align: right;
+	}
+	@media (max-width: 700px){
+		#content{
+			width: 90vw;
+		}
+		.paragraph{
+			text-indent: 40px;
+		}
+	}
+	@media (min-width: 1080px){
+		#content{
+			width: 50vw;
+		}
+		.paragraph{
+			text-indent: 100px;
+		}
+	}
+
+</style>
+<body>
+	<div class="mask"></div>
+	<div class="container">
+		<div id="content">
+			<div class="title">亲爱的小宋：</div>
+			<div class="paragraph">
+				遇见到是我的幸福，和你相爱已经<div class="timer" id="timer"></div>
+			</div>
+			<div class="me">
+				永远爱你的 Han
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	function together() {
+		var startlovetime = new Date('2014-08-17 00:00:00');
+		var timer = document.getElementById('timer');
+		var now = new Date();
+		var together = now.getTime()-startlovetime.getTime();
+		total_seconds = Math.round(together/1000);
+		days = Math.floor(total_seconds/60/60/24);
+		hours = Math.floor(total_seconds/60/60-days*24);
+		mins = Math.floor(total_seconds/60-days*24*60-hours*60);
+		seconds = Math.floor(total_seconds-days*24*60*60-hours*60*60-mins*60);
+		timer.innerHTML = days+"天"+hours+"时"+mins+"分"+seconds+"秒";
+	}
+
+	setInterval(together,500);
+</script>
+</html>
